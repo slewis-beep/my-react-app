@@ -31,6 +31,9 @@ a {
   color: #fff;
   font-size: 60px;
   line-height: 1.2;
+  animation: HeroAnimation;
+  animation-duration: 3s;
+  opacity: 0;
 }
 
 .Hero p {
@@ -62,6 +65,19 @@ a {
 
   .Hero p {
     font-size: 24px;
+  }
+
+}
+
+@keyframes HeroAnimation {
+
+  0% {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  100%{
+    transform: translateY(0px);
+    opacity: 1;
   }
 
 }
