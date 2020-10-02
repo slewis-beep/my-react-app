@@ -3,6 +3,13 @@
     width: 100%;
     padding: 50px 0;
     z-index: 100;
+    transition: 0.3s;
+}
+
+.HeaderScrolled {
+    background: rgba(0, 0, 0, 0.8);
+    padding: 16px 0;
+    backdrop-filter: blur(20px);
 }
 
 .HeaderGroup {
