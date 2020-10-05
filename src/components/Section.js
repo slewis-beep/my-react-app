@@ -1,20 +1,87 @@
-import React from 'React'
-import styled from 'styled-components'
+import React from "react"
+import styled from "styled-components"
+import Wave from "./Wave"
 
-const Section = styled.div `
-    background: black;
+
+const SectionGroup = styled.div`
+    background: url(${props => props.image});
     height: 720px;
+    background-size: cover;
+    display: grid;
+    grid-template-rows: 300px auto;
+    grid-gap: 20px;
+    position: relative;
+
+    @media (max-width: 640px) {
+        height: 720px;
+    }
+
 `
 
-const Section = props => (
-    <SectionGroup>
-        <SectionLogo>
-            <SectionLogo></SectionLogo>
-            <SectionTitle></SectionTitle>
-            <Sectiontext></Sectiontext>
-        </SectionLogo>
-    </SectionGroup>
+const SectionLogo = styled.img`
+    align-self: end;
+    width: 128px;
+    margin: 0 auto;
+`
+const SectionTitleGroup = styled.div`
+    display: grid;
+    grid-template-columns: 300px auto;
+    margin: 0 40px;
+    grid-gap: 20px;
+    grid-template-rows: auto 100%;
 
+    @media (max-width: 720px) {
+        grid-template-columns: 1fr;
+    }
+
+`
+const SectionTitle = styled.h3`
+    color: #fff;
+    grid-template-columns: 300px auto;
+    font-size: 60px;
+    margin: 0;
+    line-height: 1.2;
+
+    @media (max-width: 720px) {
+        font-size: 40px;
+        text-align: center;
+    }
+
+`
+const SectionText = styled.p`
+    color: white;
+
+    @media (max-width: 720px) {
+        text-align: center;
+    }
+    
+`
+
+const WaveTop = styled.div`
+    position: absolute;
+    top: -6px;
+    width: 100%;
+    transform: rotate(180deg);
+`
+
+const WaveBottom = styled.div`
+    position: absolute;
+    bottom: -6px;
+    width: 100%;
+`
+
+
+
+const Section = props => (
+    <SectionGroup image={props.image}>
+        <WaveTop><Wave /></WaveTop>
+        <WaveBottom><Wave /></WaveBottom>
+        <SectionLogo src={props.logo} />
+        <SectionTitleGroup>
+            <SectionTitle>{props.title}</SectionTitle>
+            <SectionText>{props.text}</SectionText>
+        </SectionTitleGroup>
+    </SectionGroup> 
 )
 
 export default Section
